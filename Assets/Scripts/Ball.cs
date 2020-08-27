@@ -6,13 +6,16 @@ public class Ball : MonoBehaviour {
     [SerializeField] Paddle paddle1;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 10f;
+    [SerializeField] AudioClip[] ballSounds;
 
     Vector2 paddleToBallVector;
     bool hasStarted = false;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start(){
         paddleToBallVector = transform.position - paddle1.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,7 +40,8 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(){
         if(hasStarted){
-            GetComponent<AudioSource>().Play();
+            AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
+            audioSource.PlayOneShot(clip);
         }
     }
 }

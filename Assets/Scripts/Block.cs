@@ -5,9 +5,13 @@ using UnityEngine;
 public class Block : MonoBehaviour{
 
     [SerializeField] AudioClip breakSound;
+    Level level;
 
     // Start is called before the first frame update
-    void Start(){}
+    void Start(){
+        level = FindObjectOfType<Level>();
+        level.CountBreakableBlocks();
+    }
     // Update is called once per frame
     void Update(){}
 

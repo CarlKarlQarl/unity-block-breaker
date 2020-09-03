@@ -513,7 +513,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6508960074954730389, guid: ad5be2aa33be342c79a620fb3fbc8ce7,
           type: 3}
-        m_MethodName: LoadNextScene
+        m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

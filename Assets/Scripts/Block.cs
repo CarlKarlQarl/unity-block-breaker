@@ -7,6 +7,7 @@ public class Block : MonoBehaviour{
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
     [SerializeField] int maxHits;
+    [SerializeField] Sprite[] hitSprites;
 
     Level level;
     GameSession GameSession;
@@ -48,5 +49,13 @@ public class Block : MonoBehaviour{
         if(timesHit >= maxHits){
             DestroyBlock();
         }
+        else {
+            ShowNextHitSprite();
+        }
+    }
+
+    private void ShowNextHitSprite(){
+        int spriteIndex = timesHit - 1;
+        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
     }
 }
